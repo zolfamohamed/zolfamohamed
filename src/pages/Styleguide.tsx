@@ -37,7 +37,7 @@ export default function Styleguide() {
             <div className="space-y-2">
               <div className="h-20 rounded-lg bg-primary" />
               <p className="font-mono text-xs text-muted-foreground">--primary</p>
-              <p className="font-mono text-xs text-foreground">Neon Green</p>
+              <p className="font-mono text-xs text-foreground">Modern Violet</p>
             </div>
             <div className="space-y-2">
               <div className="h-20 rounded-lg bg-muted border border-border" />

@@ -29,7 +29,7 @@ export function ProjectCard({ name, description, stack, impact, slug, image, cla
               alt={`${name} storefront interface`}
               loading="lazy"
               width={1600}
-              height={1000}
+              height={1008}
               className="aspect-[8/5] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
             />
           </div>
