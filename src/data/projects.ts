@@ -1,3 +1,5 @@
+import skincareProjectImage from "@/assets/skin-care-ecommerce-project.jpg";
+
 export interface PortfolioProject {
   name: string;
   slug: string;
@@ -7,6 +9,7 @@ export interface PortfolioProject {
   impact: string;
   features: string[];
   focus: string[];
+  image?: string;
 }
 
 export const projects: PortfolioProject[] = [
@@ -31,6 +34,7 @@ export const projects: PortfolioProject[] = [
       "Authentication and product-management workflows",
       "Relational data management with MySQL",
     ],
+    image: skincareProjectImage,
   },
   {
     name: "Library Management System",
