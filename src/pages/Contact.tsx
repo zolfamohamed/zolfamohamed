@@ -1,6 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
 import { CodeDivider } from "@/components/ui/CodeDivider";
-import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, ArrowUpRight } from "lucide-react";
 
 const socialLinks = [
