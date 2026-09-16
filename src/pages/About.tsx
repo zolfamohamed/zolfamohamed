@@ -2,25 +2,35 @@ import { Layout } from "@/components/layout/Layout";
 import { CodeDivider } from "@/components/ui/CodeDivider";
 import { TechTag } from "@/components/ui/TechTag";
 
-const skills = [
-  "Systems Architecture",
-  "Frontend Engineering",
-  "API Design",
-  "Performance Optimization",
-  "Technical Leadership",
-  "Product Development",
+const skillGroups = [
+  { title: "Web Development", items: ["HTML", "CSS", "JavaScript", "PHP", "Laravel", "Bootstrap", "SQL", "MySQL"] },
+  { title: "Programming", items: ["C++", "Java", "Python", "C#"] },
+  { title: "Core Concepts", items: ["Object-Oriented Programming", "Data Structures & Algorithms", "Database Management"] },
+  { title: "Cybersecurity", items: ["Vulnerability Assessment", "Web Penetration Testing Fundamentals", "Network Security Fundamentals", "Linux", "Reconnaissance", "Security Testing"] },
 ];
 
-const stack = [
-  "TypeScript",
-  "React",
-  "Node.js",
-  "PostgreSQL",
-  "Next.js",
-  "GraphQL",
-  "Redis",
-  "Docker",
-  "AWS",
+const experience = [
+  {
+    title: "Full-Stack Web Development Training",
+    organization: "National Telecommunication Institute (NTI)",
+    detail: "Completed 120 hours of intensive training in HTML, CSS, JavaScript, PHP, Laravel, MySQL, and Bootstrap, including building and deploying full web applications.",
+  },
+  {
+    title: "Vulnerability Analyst & Penetration Tester",
+    organization: "DEPI · Currently enrolled",
+    detail: "Developing practical knowledge in vulnerability assessment, penetration testing, network security, Linux, reconnaissance, and security testing methodologies.",
+  },
+  {
+    title: "Entrepreneurship & Innovation Program",
+    organization: "InnovEgypt · ITIDA",
+    detail: "Completed 45 hours focused on entrepreneurship, innovation, business modeling, and design thinking, with a collaborative startup project.",
+  },
+];
+
+const certificates = [
+  "Full Stack Web Development using PHP — NTI",
+  "HackerRank SQL (Advanced) Certificate",
+  "InnovEgypt Certificate of Acknowledgement — ITIDA",
 ];
 
 export default function About() {
@@ -38,101 +48,87 @@ export default function About() {
           <div className="grid gap-16 lg:grid-cols-3">
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-6">
-              {/* Developer Photo */}
-              <div className="mb-8 opacity-0 animate-fade-in-up stagger-1">
-                <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-lg overflow-hidden border-2 border-primary/30 transition-all duration-300 hover:border-primary">
-                  <img
-                    src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400"
-                    alt="Diego Ramirez - Developer"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-
               <div className="opacity-0 animate-fade-in-up stagger-1">
                 <p className="text-lg text-foreground leading-relaxed">
-                  I'm <span className="text-primary font-medium">Diego Ramirez</span>, a developer based in Mexico focused on building systems that scale, perform, and last. 
-                  I work at the intersection of engineering, product, and design, turning 
-                  complex problems into reliable digital solutions.
+                  I'm <span className="text-primary font-medium">Zolfa Mohamed Mahmoud</span>, a Full-Stack Developer and Software Engineering student based in Assiut, Egypt. I enjoy turning ideas into complete, responsive, and user-friendly web applications.
                 </p>
               </div>
 
               <div className="opacity-0 animate-fade-in-up stagger-2">
                 <p className="text-muted-foreground leading-relaxed">
-                  With years of experience in the industry, I've worked on everything from 
-                  early-stage startups to enterprise-scale systems. My approach combines 
-                  technical depth with product thinking — always focused on delivering 
-                  real impact, not just shipping code.
+                  I work with modern front-end and back-end technologies across interfaces,
+                  application logic, authentication, and databases. My training has given me
+                  practical experience building and deploying complete web applications.
                 </p>
               </div>
 
               <div className="opacity-0 animate-fade-in-up stagger-3">
                 <p className="text-muted-foreground leading-relaxed">
-                  I believe in writing code that's maintainable, documented, and built to 
-                  evolve. Every system I design considers not just the current requirements, 
-                  but how it will need to change and scale over time.
+                  Cybersecurity is an additional technical strength. My growing experience in
+                  vulnerability assessment and penetration testing helps me think carefully
+                  about security while designing and developing web solutions.
                 </p>
               </div>
 
               <div className="opacity-0 animate-fade-in-up stagger-4">
-                <CodeDivider label="Philosophy" />
+                <CodeDivider label="Experience & Training" />
               </div>
 
-              <div className="space-y-4 font-mono text-sm opacity-0 animate-fade-in-up stagger-4">
-                <p className="text-muted-foreground transition-colors hover:text-foreground">
-                  <span className="text-primary">{"//"}</span> Build for reliability, not just speed
-                </p>
-                <p className="text-muted-foreground transition-colors hover:text-foreground">
-                  <span className="text-primary">{"//"}</span> Measure impact, not just output
-                </p>
-                <p className="text-muted-foreground transition-colors hover:text-foreground">
-                  <span className="text-primary">{"//"}</span> Simplify complexity, don't hide it
-                </p>
-                <p className="text-muted-foreground transition-colors hover:text-foreground">
-                  <span className="text-primary">{"//"}</span> Document decisions, not just code
-                </p>
+              <div className="space-y-8 opacity-0 animate-fade-in-up stagger-4">
+                {experience.map((item) => (
+                  <article key={item.title} className="border-l-2 border-primary/40 pl-5">
+                    <h2 className="font-mono text-sm font-medium text-foreground">{item.title}</h2>
+                    <p className="mt-1 font-mono text-xs text-primary">{item.organization}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.detail}</p>
+                  </article>
+                ))}
               </div>
             </div>
 
             {/* Sidebar */}
             <div className="space-y-8">
-              {/* Skills */}
+              {/* Education */}
               <div className="opacity-0 animate-fade-in-up stagger-2">
+                <h2 className="font-mono text-sm text-primary mb-4">
+                  <span className="text-muted-foreground">/*</span> Education <span className="text-muted-foreground">*/</span>
+                </h2>
+                <p className="text-sm font-medium text-foreground">Bachelor's Degree in Software Engineering</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Faculty of Computers and Artificial Intelligence<br />Assiut National University</p>
+                <p className="mt-3 font-mono text-xs text-primary">2023 – 2027 · GPA 3.78 / 4.0 (Excellent)</p>
+              </div>
+
+              {/* Skills */}
+              <div className="space-y-6 opacity-0 animate-fade-in-up stagger-3">
                 <h2 className="font-mono text-sm text-primary mb-4">
                   <span className="text-muted-foreground">/*</span> Skills <span className="text-muted-foreground">*/</span>
                 </h2>
-                <ul className="space-y-2">
-                  {skills.map((skill) => (
-                    <li key={skill} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                      <span className="text-primary mr-2">→</span>
-                      {skill}
+                {skillGroups.map((group) => (
+                  <div key={group.title}>
+                    <h3 className="mb-2 text-sm font-medium text-foreground">{group.title}</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {group.items.map((skill) => <TechTag key={skill}>{skill}</TechTag>)}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Certificates */}
+              <div className="opacity-0 animate-fade-in-up stagger-4">
+                <h2 className="font-mono text-sm text-primary mb-4">
+                  <span className="text-muted-foreground">/*</span> Certificates <span className="text-muted-foreground">*/</span>
+                </h2>
+                <ul className="space-y-3">
+                  {certificates.map((certificate) => (
+                    <li key={certificate} className="flex gap-2 text-sm text-muted-foreground">
+                      <span className="text-primary">→</span>{certificate}
                     </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Tech Stack */}
-              <div className="opacity-0 animate-fade-in-up stagger-3">
-                <h2 className="font-mono text-sm text-primary mb-4">
-                  <span className="text-muted-foreground">/*</span> Stack <span className="text-muted-foreground">*/</span>
-                </h2>
-                <div className="flex flex-wrap gap-2">
-                  {stack.map((tech) => (
-                    <TechTag key={tech}>{tech}</TechTag>
-                  ))}
-                </div>
-              </div>
-
-              {/* Experience */}
               <div className="opacity-0 animate-fade-in-up stagger-4">
-                <h2 className="font-mono text-sm text-primary mb-4">
-                  <span className="text-muted-foreground">/*</span> Experience <span className="text-muted-foreground">*/</span>
-                </h2>
-                <div className="space-y-3 text-sm text-muted-foreground">
-                  <p>8+ years in software development</p>
-                  <p>Startups to enterprise scale</p>
-                  <p>Remote-first since 2018</p>
-                </div>
+                <h2 className="font-mono text-sm text-primary mb-4"><span className="text-muted-foreground">/*</span> Strengths <span className="text-muted-foreground">*/</span></h2>
+                <p className="text-sm leading-relaxed text-muted-foreground">Teamwork · Time Management · Adaptability · Quick Learning · Attention to Detail · Problem Analysis</p>
               </div>
             </div>
           </div>
