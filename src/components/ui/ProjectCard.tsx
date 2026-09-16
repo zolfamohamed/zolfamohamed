@@ -9,10 +9,11 @@ interface ProjectCardProps {
   stack: string[];
   impact: string;
   slug: string;
+  image?: string;
   className?: string;
 }
 
-export function ProjectCard({ name, description, stack, impact, slug, className }: ProjectCardProps) {
+export function ProjectCard({ name, description, stack, impact, slug, image, className }: ProjectCardProps) {
   return (
     <Link to={`/work/${slug}`}>
       <article
@@ -21,6 +22,19 @@ export function ProjectCard({ name, description, stack, impact, slug, className 
           className
         )}
       >
+        {image && (
+          <div className="mb-6 overflow-hidden rounded-md border border-border bg-muted">
+            <img
+              src={image}
+              alt={`${name} storefront interface`}
+              loading="lazy"
+              width={1600}
+              height={1000}
+              className="aspect-[8/5] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+            />
+          </div>
+        )}
+
         {/* Project Name */}
         <div className="flex items-center justify-between mb-2">
           <h3 className="font-mono text-lg font-medium text-foreground group-hover:text-primary transition-colors">
