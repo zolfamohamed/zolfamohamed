@@ -1,6 +1,7 @@
 import { Layout } from "@/components/layout/Layout";
 import { CodeDivider } from "@/components/ui/CodeDivider";
 import { TechTag } from "@/components/ui/TechTag";
+import profilePhoto from "@/assets/zolfa-mohamed-mahmoud-profile.jpeg.asset.json";
 
 const skillGroups = [
   { title: "Web Development", items: ["HTML", "CSS", "JavaScript", "PHP", "Laravel", "Bootstrap", "SQL", "MySQL"] },
@@ -48,26 +49,43 @@ export default function About() {
           <div className="grid gap-16 lg:grid-cols-3">
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-6">
-              <div className="opacity-0 animate-fade-in-up stagger-1">
-                <p className="text-lg text-foreground leading-relaxed">
-                  I'm <span className="text-primary font-medium">Zolfa Mohamed Mahmoud</span>, a Full-Stack Developer and Software Engineering student based in Assiut, Egypt. I enjoy turning ideas into complete, responsive, and user-friendly web applications.
-                </p>
-              </div>
+              <div className="grid items-start gap-8 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.4fr)]">
+                <figure className="opacity-0 animate-fade-in-up stagger-1">
+                  <div className="overflow-hidden rounded-md border border-border bg-card">
+                    <img
+                      src={profilePhoto.url}
+                      alt="Zolfa Mohamed Mahmoud, Full-Stack Developer"
+                      className="aspect-[4/5] w-full object-cover object-center"
+                    />
+                  </div>
+                  <figcaption className="mt-3 font-mono text-xs text-muted-foreground">
+                    Zolfa Mohamed Mahmoud · Assiut, Egypt
+                  </figcaption>
+                </figure>
 
-              <div className="opacity-0 animate-fade-in-up stagger-2">
-                <p className="text-muted-foreground leading-relaxed">
-                  I work with modern front-end and back-end technologies across interfaces,
-                  application logic, authentication, and databases. My training has given me
-                  practical experience building and deploying complete web applications.
-                </p>
-              </div>
+                <div className="space-y-6">
+                  <div className="opacity-0 animate-fade-in-up stagger-1">
+                    <p className="text-lg text-foreground leading-relaxed">
+                      I'm <span className="text-primary font-medium">Zolfa Mohamed Mahmoud</span>, a Full-Stack Developer and Software Engineering student based in Assiut, Egypt. I enjoy turning ideas into complete, responsive, and user-friendly web applications.
+                    </p>
+                  </div>
 
-              <div className="opacity-0 animate-fade-in-up stagger-3">
-                <p className="text-muted-foreground leading-relaxed">
-                  Cybersecurity is an additional technical strength. My growing experience in
-                  vulnerability assessment and penetration testing helps me think carefully
-                  about security while designing and developing web solutions.
-                </p>
+                  <div className="opacity-0 animate-fade-in-up stagger-2">
+                    <p className="text-muted-foreground leading-relaxed">
+                      I work with modern front-end and back-end technologies across interfaces,
+                      application logic, authentication, and databases. My training has given me
+                      practical experience building and deploying complete web applications.
+                    </p>
+                  </div>
+
+                  <div className="opacity-0 animate-fade-in-up stagger-3">
+                    <p className="text-muted-foreground leading-relaxed">
+                      Cybersecurity is an additional technical strength. My growing experience in
+                      vulnerability assessment and penetration testing helps me think carefully
+                      about security while designing and developing web solutions.
+                    </p>
+                  </div>
+                </div>
               </div>
 
               <div className="opacity-0 animate-fade-in-up stagger-4">
