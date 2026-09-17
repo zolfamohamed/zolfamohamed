@@ -1,7 +1,7 @@
 import { Layout } from "@/components/layout/Layout";
 import { CodeDivider } from "@/components/ui/CodeDivider";
 import { TechTag } from "@/components/ui/TechTag";
-import profilePhoto from "@/assets/zolfa-mohamed-mahmoud-profile.jpeg.asset.json";
+import profilePhoto from "@/assets/zolfa-mohamed-mahmoud-profile.jpeg";
 
 const skillGroups = [
   { title: "Web Development", items: ["HTML", "CSS", "JavaScript", "PHP", "Laravel", "Bootstrap", "SQL", "MySQL"] },
@@ -53,7 +53,7 @@ export default function About() {
                 <figure className="opacity-0 animate-fade-in-up stagger-1">
                   <div className="overflow-hidden rounded-md border border-border bg-card">
                     <img
-                      src={profilePhoto.url}
+                      src={profilePhoto}
                       alt="Zolfa Mohamed Mahmoud, Full-Stack Developer"
                       className="aspect-[4/5] w-full object-cover object-center"
                     />

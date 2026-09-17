@@ -24,7 +24,7 @@ export default function Work() {
           </div>
 
           {/* Projects Grid */}
-          <div className="grid gap-8">
+          <div className="grid gap-8 max-w-4xl mx-auto">
             {projects.map((project, index) => (
               <div 
                 key={project.name}

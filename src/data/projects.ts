@@ -1,4 +1,10 @@
 import skincareProjectImage from "@/assets/skin-care-ecommerce-project.jpg";
+import skincareProjectImage2 from "@/assets/skin-care-ecommerce-project-2.jpg";
+import skincareProjectImage3 from "@/assets/skin-care-ecommerce-project-3.jpg";
+import skincareProjectImage4 from "@/assets/skin-care-ecommerce-project-4.jpg";
+import skincareProjectImage5 from "@/assets/skin-care-ecommerce-project-5.jpg";
+import LibraryManagementSystemImage from "@/assets/LibraryManagementSystemImage.png";
+import OOPImage from "@/assets/OOP.png";
 
 export interface PortfolioProject {
   name: string;
@@ -9,7 +15,7 @@ export interface PortfolioProject {
   impact: string;
   features: string[];
   focus: string[];
-  image?: string;
+  image?: string[];
 }
 
 export const projects: PortfolioProject[] = [
@@ -34,7 +40,8 @@ export const projects: PortfolioProject[] = [
       "Authentication and product-management workflows",
       "Relational data management with MySQL",
     ],
-    image: skincareProjectImage,
+    image: [
+      skincareProjectImage, skincareProjectImage2 , skincareProjectImage3 , skincareProjectImage4 , skincareProjectImage5],
   },
   {
     name: "Library Management System",
@@ -57,6 +64,7 @@ export const projects: PortfolioProject[] = [
       "Usable forms and navigation",
       "Querying, filtering, and reporting",
     ],
+    image:[LibraryManagementSystemImage] ,
   },
   {
     name: "OOP Shape Calculator System",
@@ -79,5 +87,6 @@ export const projects: PortfolioProject[] = [
       "Desktop interface development",
       "Persistent local file handling",
     ],
+    image:[OOPImage] ,
   },
 ];

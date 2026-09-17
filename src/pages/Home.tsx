@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
@@ -8,40 +9,173 @@ import { TypingCursor } from "@/components/ui/TypingCursor";
 import { ArrowRight } from "lucide-react";
 import { projects } from "@/data/projects";
 
+const terminalLines = [
+  {
+    command: "analyze",
+    output: "think. solve.",
+  },
+  {
+    command: "secure",
+    output: "protect. verify. ✓",
+  },
+  {
+    command: "build",
+    output: "clean & simple.",
+  },
+  {
+    command: "test",
+    output: "check. improve. ✓",
+  },
+  {
+    command: "ready",
+    output: "let's build.",
+  },
+];
+
 export default function Home() {
+  const [lineIndex, setLineIndex] = useState(0);
+  const [text, setText] = useState("");
+  const [showOutput, setShowOutput] = useState(false);
+
+  useEffect(() => {
+    const currentLine = terminalLines[lineIndex];
+
+    if (!showOutput) {
+      if (text.length < currentLine.command.length) {
+        const timeout = setTimeout(() => {
+          setText(currentLine.command.slice(0, text.length + 1));
+        }, 90);
+
+        return () => clearTimeout(timeout);
+      }
+
+      const timeout = setTimeout(() => {
+        setShowOutput(true);
+      }, 500);
+
+      return () => clearTimeout(timeout);
+    }
+
+    const timeout = setTimeout(() => {
+      if (lineIndex < terminalLines.length - 1) {
+        setLineIndex((prev) => prev + 1);
+        setText("");
+        setShowOutput(false);
+      } else {
+        setLineIndex(0);
+        setText("");
+        setShowOutput(false);
+      }
+    }, 1800);
+
+    return () => clearTimeout(timeout);
+  }, [text, lineIndex, showOutput]);
+
+  const currentLine = terminalLines[lineIndex];
+
   return (
     <Layout>
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center bg-grid">
         <div className="container">
-          <div className="max-w-3xl opacity-0 animate-fade-in-up">
-            {/* Code-style label */}
-            <CodeLabel className="mb-6">Full-Stack Developer · Assiut, Egypt</CodeLabel>
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
 
-            {/* Headline with typing cursor */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-              Hi, I'm Zolfa Mohamed Mahmoud.
-              <br />
-              <span className="text-muted-foreground">Full-Stack Developer with a Security Mindset</span>
-              <TypingCursor />
-            </h1>
+            {/* Left Side - Introduction */}
+            <div className="max-w-3xl opacity-0 animate-fade-in-up">
+              <CodeLabel className="mb-6">
+                Full-Stack Developer · Assiut, Egypt
+              </CodeLabel>
 
-            {/* Subheadline */}
-            <p className="text-lg text-muted-foreground mb-8 max-w-xl leading-relaxed opacity-0 animate-fade-in-up stagger-1">
-              I build responsive, dynamic, and user-friendly web applications with modern
-              front-end and back-end technologies. My growing Cybersecurity background helps
-              me approach every web solution with security in mind.
-            </p>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+                Hi, I'm Zolfa Mohamed Mahmoud.
+                <br />
 
-            {/* CTA */}
-            <div className="opacity-0 animate-fade-in-up stagger-2">
-              <Button asChild size="lg" className="font-mono transition-transform hover:scale-105">
-                <Link to="/work">
-                  View Work
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
+                <span className="text-muted-foreground">
+                  Full-Stack Developer with a Security Mindset
+                </span>
+
+                <TypingCursor />
+              </h1>
+
+              <p className="text-lg text-muted-foreground mb-8 max-w-xl leading-relaxed opacity-0 animate-fade-in-up stagger-1">
+                I build responsive, dynamic, and user-friendly web applications
+                with modern front-end and back-end technologies. My growing
+                Cybersecurity background helps me approach every web solution
+                with security in mind.
+              </p>
+
+              <div className="opacity-0 animate-fade-in-up stagger-2">
+                <Button
+                  asChild
+                  size="lg"
+                  className="font-mono transition-transform hover:scale-105"
+                >
+                  <Link to="/work">
+                    View Work
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
             </div>
+
+            {/* Right Side - Animated Terminal */}
+            <div className="w-full max-w-md opacity-0 animate-fade-in-up stagger-2">
+              <div className="rounded-xl border border-primary/30 bg-card/80 backdrop-blur-sm overflow-hidden shadow-lg">
+
+                {/* Terminal Header */}
+                <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-muted/30">
+                  <span className="w-3 h-3 rounded-full bg-red-400/70" />
+                  <span className="w-3 h-3 rounded-full bg-yellow-400/70" />
+                  <span className="w-3 h-3 rounded-full bg-green-400/70" />
+
+                  <span className="ml-3 font-mono text-xs text-muted-foreground">
+                    ~/zolfa/portfolio
+                  </span>
+                </div>
+
+                {/* Terminal Content */}
+                <div className="p-6 font-mono text-sm leading-8 min-h-[360px]">
+
+                  {/* Previous Lines */}
+                  {terminalLines
+                    .slice(0, lineIndex)
+                    .map((line, index) => (
+                      <div key={index} className="mb-2">
+                        <div>
+                          <span className="text-primary">$</span>{" "}
+                          <span className="text-foreground">
+                            {line.command}
+                          </span>
+                        </div>
+
+                        <div className="text-muted-foreground pl-4">
+                          &gt; {line.output}
+                        </div>
+                      </div>
+                    ))}
+
+                  {/* Current Line */}
+                  <div>
+                    <span className="text-primary">$</span>{" "}
+                    <span className="text-foreground">
+                      {text}
+                    </span>
+
+                    <span className="ml-1 text-primary animate-pulse">
+                      █
+                    </span>
+                  </div>
+
+                  {/* Current Output */}
+                  {showOutput && (
+                    <div className="text-muted-foreground pl-4">
+                      &gt; {currentLine.output}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -49,32 +183,41 @@ export default function Home() {
       {/* Featured Projects */}
       <section className="py-20">
         <div className="container">
+
           <div className="opacity-0 animate-fade-in-up">
             <CodeDivider label="Featured Work" />
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
             {projects.map((project, index) => (
-              <div 
-                key={project.name} 
+              <div
+                key={project.name}
                 className={`opacity-0 animate-fade-in-up stagger-${index + 1}`}
               >
-                <ProjectCard {...project} className="hover-lift" />
+                <ProjectCard
+                  {...project}
+                  className="hover-lift"
+                />
               </div>
             ))}
           </div>
 
           {/* View All Link */}
           <div className="mt-12 text-center opacity-0 animate-fade-in-up stagger-4">
-            <Link 
-              to="/work" 
+            <Link
+              to="/work"
               className="inline-flex items-center font-mono text-sm text-muted-foreground hover:text-primary transition-colors link-underline"
             >
-              <span className="text-primary mr-2">{"//"}</span>
+              <span className="text-primary mr-2">
+                {"//"}
+              </span>
+
               View all projects
+
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </div>
+
         </div>
       </section>
     </Layout>
