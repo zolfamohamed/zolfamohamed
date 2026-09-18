@@ -13,17 +13,6 @@ export default function Contact() {
     <Layout>
       <section className="py-20">
         <div className="container">
-          {/* Page Header */}
-          <div className="max-w-2xl mb-12">
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Contact
-            </h1>
-            <p className="text-muted-foreground leading-relaxed">
-              I'm open to Full-Stack Developer opportunities, internships,
-              freelance projects, and junior developer roles.
-            </p>
-          </div>
-
           <div className="max-w-3xl">
             <CodeDivider label="Connect" />
               

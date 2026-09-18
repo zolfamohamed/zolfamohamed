@@ -4,29 +4,13 @@ import { TechTag } from "@/components/ui/TechTag";
 import profilePhoto from "@/assets/zolfa-mohamed-mahmoud-profile.jpeg";
 
 const skillGroups = [
-  { title: "Web Development", items: ["HTML", "CSS", "JavaScript", "PHP", "Laravel", "Bootstrap", "SQL", "MySQL"] },
-  { title: "Programming", items: ["C++", "Java", "Python", "C#"] },
+  { title: "Web Development", items: ["HTML", "CSS", "JavaScript", "PHP","Python", "Laravel","Flask","React", "Bootstrap", "SQL", "MySQL"] },
+  { title: "Programming", items: ["C++", "C#", "Java", "Python","PHP"] },
   { title: "Core Concepts", items: ["Object-Oriented Programming", "Data Structures & Algorithms", "Database Management"] },
   { title: "Cybersecurity", items: ["Vulnerability Assessment", "Web Penetration Testing Fundamentals", "Network Security Fundamentals", "Linux", "Reconnaissance", "Security Testing"] },
 ];
 
-const experience = [
-  {
-    title: "Full-Stack Web Development Training",
-    organization: "National Telecommunication Institute (NTI)",
-    detail: "Completed 120 hours of intensive training in HTML, CSS, JavaScript, PHP, Laravel, MySQL, and Bootstrap, including building and deploying full web applications.",
-  },
-  {
-    title: "Vulnerability Analyst & Penetration Tester",
-    organization: "DEPI · Currently enrolled",
-    detail: "Developing practical knowledge in vulnerability assessment, penetration testing, network security, Linux, reconnaissance, and security testing methodologies.",
-  },
-  {
-    title: "Entrepreneurship & Innovation Program",
-    organization: "InnovEgypt · ITIDA",
-    detail: "Completed 45 hours focused on entrepreneurship, innovation, business modeling, and design thinking, with a collaborative startup project.",
-  },
-];
+
 
 const certificates = [
   "Full Stack Web Development using PHP — NTI",
@@ -51,14 +35,28 @@ export default function About() {
             <div className="lg:col-span-2 space-y-6">
               <div className="grid items-start gap-8 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.4fr)]">
                 <figure className="opacity-0 animate-fade-in-up stagger-1">
-                  <div className="overflow-hidden rounded-md border border-border bg-card">
-                    <img
-                      src={profilePhoto}
-                      alt="Zolfa Mohamed Mahmoud, Full-Stack Developer"
-                      className="aspect-[4/5] w-full object-cover object-center"
-                    />
+                  <div className="relative mx-auto w-full max-w-[260px]">
+
+                    {/* Decorative animated frame */}
+                    <div className="absolute -inset-3 rounded-xl border border-primary/20">
+                      <span className="absolute -top-px left-8 h-[2px] w-12 bg-primary animate-pulse" />
+                      <span className="absolute -bottom-px right-8 h-[2px] w-12 bg-primary animate-pulse" />
+                    </div>
+
+                    {/* Image */}
+                    <div className="relative rounded-lg border border-border bg-card p-2">
+                      <div className="overflow-hidden rounded-md">
+                        <img
+                          src={profilePhoto}
+                          alt="Zolfa Mohamed Mahmoud, Full-Stack Developer"
+                          className="aspect-[4/5] w-full object-cover object-center"
+                        />
+                      </div>
+                    </div>
+
                   </div>
-                  <figcaption className="mt-3 font-mono text-xs text-muted-foreground">
+
+                  <figcaption className="mt-10 text-center font-mono text-xs text-muted-foreground">
                     Zolfa Mohamed Mahmoud · Assiut, Egypt
                   </figcaption>
                 </figure>
@@ -86,20 +84,6 @@ export default function About() {
                     </p>
                   </div>
                 </div>
-              </div>
-
-              <div className="opacity-0 animate-fade-in-up stagger-4">
-                <CodeDivider label="Experience & Training" />
-              </div>
-
-              <div className="space-y-8 opacity-0 animate-fade-in-up stagger-4">
-                {experience.map((item) => (
-                  <article key={item.title} className="border-l-2 border-primary/40 pl-5">
-                    <h2 className="font-mono text-sm font-medium text-foreground">{item.title}</h2>
-                    <p className="mt-1 font-mono text-xs text-primary">{item.organization}</p>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.detail}</p>
-                  </article>
-                ))}
               </div>
             </div>
 

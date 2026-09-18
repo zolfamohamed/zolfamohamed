@@ -36,7 +36,7 @@ export function ProjectCard({
   }, [image]);
 
   return (
-    <Link to={`/work/${slug}`}>
+    <Link to={`/experience/${slug}`}>
       <article
         className={cn(
           "group p-6 bg-card border border-border rounded-lg transition-all hover:border-primary/50 hover:bg-card/80 cursor-pointer",

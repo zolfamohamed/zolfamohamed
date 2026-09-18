@@ -110,7 +110,7 @@ export default function Home() {
                   size="lg"
                   className="font-mono transition-transform hover:scale-105"
                 >
-                  <Link to="/work">
+                  <Link to="/experience">
                     View Work
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
@@ -183,31 +183,181 @@ export default function Home() {
       {/* Featured Projects */}
       <section className="py-20">
         <div className="container">
+          {/* Services */}
+          <section className="py-20">
+            <div className="container">
 
-          <div className="opacity-0 animate-fade-in-up">
-            <CodeDivider label="Featured Work" />
-          </div>
+              {/* Section Header */}
+              <div className="max-w-2xl mb-12 opacity-0 animate-fade-in-up">
+                <CodeDivider label="Services" />
 
-          <div className="grid gap-6 md:grid-cols-2">
-            {projects.map((project, index) => (
-              <div
-                key={project.name}
-                className={`opacity-0 animate-fade-in-up stagger-${index + 1}`}
-              >
-                <ProjectCard
-                  {...project}
-                  className="hover-lift"
-                />
+                <p className="mt-6 text-muted-foreground leading-relaxed">
+                  Services I can provide for modern, responsive, and security-minded
+                  web applications.
+                </p>
               </div>
-            ))}
-          </div>
 
+              {/* Services Grid */}
+              <div className="grid gap-6 md:grid-cols-2">
+
+                {/* Full-Stack Development */}
+                <div className="group p-6 rounded-lg border border-border bg-card transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 opacity-0 animate-fade-in-up stagger-1">
+                  <div className="mb-5 flex items-center justify-between">
+                    <span className="font-mono text-2xl text-primary">
+                      {"</>"}
+                    </span>
+                    <span className="font-mono text-xs text-muted-foreground">
+                      01
+                    </span>
+                  </div>
+
+                  <h2 className="text-xl font-semibold text-foreground mb-3">
+                    Front-End Development
+                  </h2>
+
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                    Designing and building responsive, interactive user interfaces using modern front-end technologies and component-based development..
+                  </p>
+
+                  <div className="flex flex-wrap gap-2">
+                    <span className="font-mono text-xs px-2 py-1 rounded border border-border text-muted-foreground">
+                      HTML
+                    </span>
+                    <span className="font-mono text-xs px-2 py-1 rounded border border-border text-muted-foreground">
+                      CSS
+                    </span>
+                    <span className="font-mono text-xs px-2 py-1 rounded border border-border text-muted-foreground">
+                      JavaScript
+                    </span>
+                    <span className="font-mono text-xs px-2 py-1 rounded border border-border text-muted-foreground">
+                      PHP
+                    </span>
+                    <span className="font-mono text-xs px-2 py-1 rounded border border-border text-muted-foreground">
+                      Laravel
+                    </span>
+                    <span className="font-mono text-xs px-2 py-1 rounded border border-border text-muted-foreground">
+                      React
+                    </span>
+
+                  </div>
+                </div>
+
+                {/* Web Application Development */}
+                <div className="group p-6 rounded-lg border border-border bg-card transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 opacity-0 animate-fade-in-up stagger-2">
+                  <div className="mb-5 flex items-center justify-between">
+                    <span className="font-mono text-2xl text-primary">
+                      {"{ }"}
+                    </span>
+                    <span className="font-mono text-xs text-muted-foreground">
+                      02
+                    </span>
+                  </div>
+
+                  <h2 className="text-xl font-semibold text-foreground mb-3">
+                    Backend & API Development
+                  </h2>
+
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                    Building server-side applications, backend logic, REST APIs, authentication, and database integrations for reliable web applications.
+                  </p>
+
+                  <div className="flex flex-wrap gap-2">
+                    <span className="font-mono text-xs px-2 py-1 rounded border border-border text-muted-foreground">
+                      PHP
+                    </span>
+                    <span className="font-mono text-xs px-2 py-1 rounded border border-border text-muted-foreground">
+                     Python
+                    </span>
+                    <span className="font-mono text-xs px-2 py-1 rounded border border-border text-muted-foreground">
+                      Laravel
+                    </span>
+                    <span className="font-mono text-xs px-2 py-1 rounded border border-border text-muted-foreground">
+                      Flask
+                    </span>
+                    <span className="font-mono text-xs px-2 py-1 rounded border border-border text-muted-foreground">
+                      MySQL
+                    </span>
+                  </div>
+                </div>
+                {/* Database & Backend */}
+                <div className="group p-6 rounded-lg border border-border bg-card transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 opacity-0 animate-fade-in-up stagger-4">
+                  <div className="mb-5 flex items-center justify-between">
+                    <span className="font-mono text-2xl text-primary">
+                      {"[ ]"}
+                    </span>
+                    <span className="font-mono text-xs text-muted-foreground">
+                      03
+                    </span>
+                  </div>
+
+                  <h2 className="text-xl font-semibold text-foreground mb-3">
+                    Database & Backend Solutions
+                  </h2>
+
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                    Designing structured databases, managing relationships between data, writing SQL queries, and integrating databases with web applications.
+                  </p>
+
+                  <div className="flex flex-wrap gap-2">
+                    <span className="font-mono text-xs px-2 py-1 rounded border border-border text-muted-foreground">
+                      MySQL
+                    </span>
+                    <span className="font-mono text-xs px-2 py-1 rounded border border-border text-muted-foreground">
+                      SQL
+                    </span>
+                    <span className="font-mono text-xs px-2 py-1 rounded border border-border text-muted-foreground">
+                      Database Design
+                    </span>
+                    <span className="font-mono text-xs px-2 py-1 rounded border border-border text-muted-foreground">
+                      CRUD
+                    </span>
+                  </div>
+                </div>
+
+                {/* Web Security */}
+                <div className="group p-6 rounded-lg border border-border bg-card transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 opacity-0 animate-fade-in-up stagger-3">
+                  <div className="mb-5 flex items-center justify-between">
+                    <span className="font-mono text-2xl text-primary">
+                      {"<*>"}
+                    </span>
+                    <span className="font-mono text-xs text-muted-foreground">
+                      04
+                    </span>
+                  </div>
+
+                  <h2 className="text-xl font-semibold text-foreground mb-3">
+                    Web Security Assessment
+                  </h2>
+
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                    Assessing web applications for common security weaknesses and
+                    identifying potential vulnerabilities with practical recommendations.
+                  </p>
+
+                  <div className="flex flex-wrap gap-2">
+                    <span className="font-mono text-xs px-2 py-1 rounded border border-border text-muted-foreground">
+                      Web Security
+                    </span>
+                    <span className="font-mono text-xs px-2 py-1 rounded border border-border text-muted-foreground">
+                      OWASP
+                    </span>
+                    <span className="font-mono text-xs px-2 py-1 rounded border border-border text-muted-foreground">
+                      Reconnaissance
+                    </span>
+                    <span className="font-mono text-xs px-2 py-1 rounded border border-border text-muted-foreground">
+                      Security Testing
+                    </span>
+                  </div>
+                </div>
+
+                
+
+              </div>
+            </div>
+          </section>
           {/* View All Link */}
           <div className="mt-12 text-center opacity-0 animate-fade-in-up stagger-4">
-            <Link
-              to="/work"
-              className="inline-flex items-center font-mono text-sm text-muted-foreground hover:text-primary transition-colors link-underline"
-            >
+            <Link to="/experience" className="inline-flex items-center font-mono text-sm text-muted-foreground hover:text-primary transition-colors link-underline">
               <span className="text-primary mr-2">
                 {"//"}
               </span>
